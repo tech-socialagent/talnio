@@ -1,0 +1,12 @@
+.headerWrap{
+    height: 45px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 4%;
+}
+
+.logo{
+    height: 100%; 
+    width: max-content;
+    object-fit: contain;   
+}

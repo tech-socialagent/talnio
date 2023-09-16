@@ -1,0 +1,75 @@
+.sectionWrap {
+    padding: 2% 8%;
+}
+
+.headerSection h2 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0;
+}
+
+.headerSection p {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+}
+
+.body {
+    margin-top: 3%;
+    display: flex;
+}
+
+.left {
+    width: 60%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+}
+
+.left .cardWrap {
+    width: 42%;
+    height: max-content;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 20px 15px 30px #30303056;
+}
+
+.left .image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.left .designation{
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0% 4%;
+}
+
+.right .cardWrap {
+    height: max-content;
+    padding: 3% 4%;
+}
+
+.right .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.right .desc {
+    font-size: 16px;
+    font-weight: 400;
+}
