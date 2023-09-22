@@ -6,3 +6,6 @@
 :root{
   --primary-color: #0EAAB5;
 }
+
+/* styles/globals.css */
+@import 'firebaseui/dist/firebaseui.css';

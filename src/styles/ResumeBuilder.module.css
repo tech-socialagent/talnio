@@ -1,0 +1,164 @@
+/* Header */
+.sectionWrap {
+    padding: 4%;
+    padding-bottom: 10px;
+}
+
+.topSection h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 54px;
+}
+
+.topSection p {
+    margin: 0;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.stagesWrap {
+    background: #afd9d986;
+    display: flex;
+    padding: 2%;
+    justify-content: space-around;
+    margin-top: 2%;
+    border-radius: 8px;
+}
+
+.stage {
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SelectedStage {
+    background: var(--primary-color);
+    padding: 10px 4%;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.formTitle {
+    margin: 2%;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+/* Header close */
+
+/* Form Section */
+
+.formWrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 6%;
+    column-gap: 1%;
+    row-gap: 20px;
+}
+
+.small {
+    display: flex;
+    flex-direction: column;
+    width: calc(98% / 3);
+}
+
+.medium {
+    display: flex;
+    flex-direction: column;
+    width: calc(99%/2);
+}
+
+.large {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formWrap label {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.formWrap input {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #BCC7CE;
+}
+
+.formWrap textarea {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #BCC7CE;
+    margin-top: 10px;
+    min-height: 100px;
+}
+
+.btnWrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.formWrap input[type=submit] {
+    background: var(--primary-color);
+    border: none;
+    padding: 10px 50px;
+    margin: 4% 0;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 340px;
+    cursor: pointer;
+}
+.btn {
+    background: var(--primary-color);
+    border: none;
+    padding: 10px 50px;
+    margin: 4% 0;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 340px;
+    cursor: pointer;
+}
+
+.removeButton {
+    width: max-content;
+    background: var(--primary-color);
+    border: none;
+    padding: 8px 20px;
+    margin-top: 1%;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.addSkillBtn {
+    background: var(--primary-color);
+    border: none;
+    padding: 10px 50px;
+    margin: 1% 0;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 340px;
+    cursor: pointer;
+}

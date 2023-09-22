@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import Header from '@/Components/Header'
 import HeroSection from '@/Components/HomePage/HeroSection'
 import SecondSection from '@/Components/HomePage/SecondSection'
 import { Candidate } from '@/Components/HomePage/Candidate'
 import Recruit from '@/Components/HomePage/Recruit'
-import FindYouCandidate from '@/Components/HomePage/findYouCandidate'
+import FindYouCandidate from '@/Components/HomePage/FindYouCandidate'
+import BuildResume from '@/Components/HomePage/BuildResume'
+import ContactUs from '@/Components/HomePage/ContactUs'
+import Footer from '@/Components/Footer'
 
 
 export default function Home() {
@@ -26,6 +26,17 @@ export default function Home() {
         <Candidate />
         <Recruit />
         <FindYouCandidate />
+        <BuildResume />
+
+        {/* temporary */}
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8% 0' }} >
+          <h1 style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '56px', margin: '0' }}>Lorem ipsum </h1>
+          <div style={{ width: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', fontSize: '22px' }}>Our platform is designed to streamline and simplify your hiring journey, allowing you to recruit with ease.</div>
+        </div>
+        {/* END */}
+
+        <ContactUs />
+        <Footer />
       </main>
     </>
   )

@@ -1,0 +1,174 @@
+
+/* Sign Up and Sign In */
+
+
+.sectionWrap {
+  height: 98vh;
+  display: flex;
+}
+
+.left {
+  width: 30%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.right {
+  width: 27%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 8%;
+
+}
+
+.right h1 {
+  font-size: 24px;
+  margin-bottom: 10%;
+}
+
+.googleSignUpWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  column-gap: 2%;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+.googleSignInWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #00000062;
+  column-gap: 2%;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+.emailSignUpWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #0c0c0c;
+  column-gap: 2%;
+  border-radius: 60px;
+  border: 1px solid #00000062;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.googleSignUpWrap p {}
+
+.or {
+  height: 1px;
+  margin: 30px 0;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  background-color: #e7e7e9;
+  color: #6e6d7a;
+  text-align: center;
+}
+
+.or:after {
+  content: 'or';
+  display: inline-block;
+  position: relative;
+  top: -7px;
+  padding: 0 16px;
+  background: #fff;
+  font: normal 14px/14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.privacyPolicyWrap p {
+  font-size: 12px;
+  text-align: center;
+  color: #000000b3;
+}
+
+.privacyPolicyWrap {
+  margin-top: 6%;
+}
+
+.singInWrap p {
+  text-align: center;
+  font-size: 14px;
+  color: #000000b3;
+}
+
+.link {
+  color: #000000;
+}
+
+
+/* email sign up */
+.inputWrap {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.inputWrap label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.inputWrap input {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  padding: 12px 10px;
+  border-radius: 10px;
+  border: 1px solid #BCC7CE;
+}
+
+.privacyPolicyWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.privacyPolicyWrap input {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.privacyPolicyWrap p {
+  margin: 0;
+  text-align: left;
+  margin-left: 8px;
+  font-size: 11px;
+}
+
+
+
+.createBtnWrap {
+  width: 100%;
+}
+
+.createBtnWrap input[type=submit] {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 60px;
+  border: 1px solid #00000062;
+  cursor: pointer;
+  height: 60px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+}

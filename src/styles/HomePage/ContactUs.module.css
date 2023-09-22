@@ -1,0 +1,58 @@
+.sectionWrap {
+    padding: 4% 8%;
+    display: flex;
+    gap: 2%;
+    background: rgba(216, 255, 255, 0.46);
+}
+
+.left {
+    width: 55%;
+}
+
+.left h3 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.left p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 90%;
+    margin-bottom: 8%;
+}
+
+.iconText {
+    display: flex;
+    gap: 10px;
+    margin-top: 2px;
+    align-items: center;
+}
+
+.iconTextAddress {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: start;
+}
+
+.icon {
+    font-size: 22px;
+}
+
+.iconText a , .iconTextAddress a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+.address {
+    width: 70%;
+}
+
+.right {
+    width: 45%;
+}

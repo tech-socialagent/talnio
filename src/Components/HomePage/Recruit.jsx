@@ -47,7 +47,7 @@ const Recruit = () => {
 
                         {
                             candidateData.map((item, key) => (
-                                <div className={styles.card}>
+                                <div className={styles.card} key={key} >
                                     <Image src={img} alt='image' className={styles.profileImg} />
                                     <div className={styles.info}>
                                         <div className={styles.name} >{item.name}</div>
