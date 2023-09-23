@@ -16,7 +16,7 @@ const BuildResume = () => {
                 <button className={styles.btn} >Get Started</button>
             </div>
             <div className={styles.rightImage}>
-                <Image src={laptop} alt='person' className={styles.heroImage} />
+                <Image src={laptop} alt='image' className={styles.heroImage} loading='eager'/>
             </div>
         </div>
     )

@@ -12,21 +12,21 @@ const Recruit = () => {
     const candidateData = [
         {
             name: "Adora Jacobs",
-            graduate: "Graduate",
-            university: "University of Lagos",
-            location: "Tokyo"
+            // graduate: "Graduate",
+            // university: "University of Lagos",
+            // location: "Tokyo"
         },
         {
             name: "Adora Jacobs",
-            graduate: "Graduate",
-            university: "University of Lagos",
-            location: "Tokyo"
+            // graduate: "Graduate",
+            // university: "University of Lagos",
+            // location: "Tokyo"
         },
         {
             name: "Adora Jacobs",
-            graduate: "Graduate",
-            university: "University of Lagos",
-            location: "Tokyo"
+            // graduate: "Graduate",
+            // university: "University of Lagos",
+            // location: "Tokyo"
         },
     ]
 
@@ -48,26 +48,30 @@ const Recruit = () => {
                         {
                             candidateData.map((item, key) => (
                                 <div className={styles.card} key={key} >
-                                    <Image src={img} alt='image' className={styles.profileImg} />
-                                    <div className={styles.info}>
-                                        <div className={styles.name} >{item.name}</div>
-                                        <div className={styles.eduInfoWrap}>
-                                            <div className={styles.eduInfo}>
-                                                <FaUserGraduate className={styles.icon} />
-                                                <p>{item.graduate}</p>
-                                            </div>
-                                            <div className={styles.eduInfo}>
-                                                <FaUniversity className={styles.icon} />
-                                                <p>{item.university}</p>
-                                            </div>
-                                            <div className={styles.eduInfo}>
-                                                <FaLocationDot className={styles.icon} />
-                                                <p>{item.location}</p>
+                                     <div style={{ display: 'flex', alignItems: 'center', width: '50%' }}>
+                                        <Image src={img} alt='image' className={styles.profileImg} />
+                                        <div className={styles.info}>
+                                            <div className={styles.name} >{item.name}</div>
+                                            <div className={styles.eduInfoWrap}>
+                                                <div className={styles.eduInfo}>
+                                                    <FaUserGraduate className={styles.icon} />
+                                                    <p>{item.graduate}</p>
+                                                </div>
+                                                <div className={styles.eduInfo}>
+                                                    <FaUniversity className={styles.icon} />
+                                                    <p>{item.university}</p>
+                                                </div>
+                                                <div className={styles.eduInfo}>
+                                                    <FaLocationDot className={styles.icon} />
+                                                    <p>{item.location}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button className={styles.applicationBtn}>View Application</button>
-                                    <BsBookmark className={styles.bookmark} />
+                                    <div className={styles.buttonWrap}>
+                                        <button className={styles.applicationBtn}>View Application</button>
+                                        <BsBookmark className={styles.bookmark} />
+                                    </div>
                                 </div>
                             ))
                         }

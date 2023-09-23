@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { EducationContext, ResumeStageContext } from '@/Context';
+import { EducationContext, ResumeStageContext, UserContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
+import { addDoc, collection } from "firebase/firestore";
+import db from '../../FirebaseConfig'
 
 const Education = () => {
     const { setResumeStage } = useContext(ResumeStageContext);
     const { educationData, setEducationData } = useContext(EducationContext)
+    const { user } = useContext(UserContext);
 
 
     const handleInputChange = (e) => {
@@ -18,8 +21,28 @@ const Education = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Perform any additional actions, such as validation, before transitioning to the next stage
-        setResumeStage('Skills');
-        // Scroll to the top of the page
+
+
+        const EducationDB = async () => {
+            try {
+                const docRef = await addDoc(collection(db, "education"), {
+                    highestEducationLevel: educationData.highestEducationLevel,
+                    institutionName: educationData.institutionName,
+                    fieldOfStudy: educationData.fieldOfStudy,
+                    degreeEarned: educationData.degreeEarned,
+                    graduationDate: educationData.graduationDate,
+                    gpaOrGrade: educationData.gpaOrGrade,
+                    skills: educationData.skills,
+                    certifications: educationData.certifications,
+                    userEmail: user.email,
+                });
+                setResumeStage('Skills');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        };
+        EducationDB();
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 

@@ -60,7 +60,7 @@ export default function ResumeBuilder() {
                     <EducationContext.Provider value={{ educationData, setEducationData }}>
                         <WorkExperienceContext.Provider value={{ workExperienceData, setWorkExperienceData }}>
                             <SkillContext.Provider value={{ skillData, setSkillData }}> 
-                                {resumeStage === 'Personal details' ? <PersonalDetailsForm /> : resumeStage === 'Work  Experience' ? <WorkExperience /> : resumeStage === 'Education' ? <Education /> : resumeStage === 'Skills' ? <Skills /> : resumeStage === 'Preview' ? <Preview /> : ''}
+                                {resumeStage === 'Personal details' ? <PersonalDetailsForm /> : resumeStage === 'Work Experience' ? <WorkExperience /> : resumeStage === 'Education' ? <Education /> : resumeStage === 'Skills' ? <Skills /> : resumeStage === 'Preview' ? <Preview /> : ''}
                             </SkillContext.Provider>
                         </WorkExperienceContext.Provider>
                     </EducationContext.Provider>

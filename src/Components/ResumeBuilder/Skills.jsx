@@ -1,136 +1,114 @@
 import React, { useContext, useState } from 'react';
-import { ResumeStageContext, SkillContext } from '@/Context';
+import { ResumeStageContext, SkillContext, UserContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
+import { RiAddFill } from 'react-icons/ri';
+import { useRouter } from 'next/router';
+import { addDoc, updateDoc, doc } from 'firebase/firestore'; // Import Firestore functions
+import db from '../../FirebaseConfig'
 
 const Skills = () => {
-    const { setResumeStage } = useContext(ResumeStageContext);
-    const { skillData, setSkillData } = useContext(SkillContext);
+    const { user } = useContext(UserContext);
+    const route = useRouter();
+    const [selectedSector, setSelectedSector] = useState('IT'); // Initialize with 'IT' as the default sector
+    const [selectedSkills, setSelectedSkills] = useState([]); // State to hold selected skills
 
-    const [newSkills, setNewSkills] = useState([
-        { id: Date.now(), skill: '', certificate: null },
-    ]);
+    const skillData = [
+        {
+            sector: 'IT',
+            skills: ['Java', 'JavaScript'],
+        },
+        {
+            sector: 'Marketing',
+            skills: ['Google Ads', 'Meta Ads', 'Google Analytics'],
+        },
+        {
+            sector: 'Design',
+            skills: ['Photoshop', 'Illustrator', 'In-Design', 'Canva'],
+        },
+    ];
 
-    const addSkillField = () => {
-        setNewSkills([...newSkills, { id: Date.now(), skill: '', certificate: null }]);
-    };
-
-    const removeSkillField = (id) => {
-        // Remove the skill from newSkills
-        const updatedNewSkills = newSkills.filter((field) => field.id !== id);
-        setNewSkills(updatedNewSkills);
-
-        // Remove the skill from skillData using setSkillData
-        const updatedSkillData = skillData.filter((field) => field.id !== id);
-        setSkillData(updatedSkillData);
-    };
-
-    const handleSkillChange = (id, value) => {
-        const updatedNewSkills = newSkills.map((field) =>
-            field.id === id ? { ...field, skill: value } : field
-        );
-        setNewSkills(updatedNewSkills);
-
-        // Update the skill in skillData using setSkillData
-        const updatedSkillData = skillData.map((field) =>
-            field.id === id ? { ...field, skill: value } : field
-        );
-        setSkillData(updatedSkillData);
-    };
-
-    const handleCertificateChange = (id, file) => {
-        const updatedNewSkills = newSkills.map((field) =>
-            field.id === id ? { ...field, certificate: file } : field
-        );
-        setNewSkills(updatedNewSkills);
-
-        // Update the skill in skillData using setSkillData
-        const updatedSkillData = skillData.map((field) =>
-            field.id === id ? { ...field, certificate: file } : field
-        );
-        setSkillData(updatedSkillData);
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Collect the data into a state variable
-        const skillData = newSkills.map((field) => ({
-            id: field.id, // Include ID in the skill data
-            skill: field.skill,
-            certificate: field.certificate,
-        }));
-
-        // Update the skill data using the setSkillData function
-        setSkillData(skillData);
-
-        setResumeStage('Preview');
-        // Scroll to the top of the page
+        
+        try {
+            // Update the user document in Firestore with the selected skills
+            const userDocRef = doc(db, 'users', user.email); // Assuming 'users' is the collection name
+            await updateDoc(userDocRef, {
+                skills: selectedSkills,
+            });
+            
+            // Redirect to the user's profile page
+            route.push(`/profile/${user.email}`);
+        } catch (error) {
+            console.error('Error updating user document:', error);
+        }
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    return (
-        <form onSubmit={handleSubmit} className={styles.formWrap}>
-            {/* Display existing skills from skillData */}
-            {skillData.map((existingSkill) => (
-                <div key={existingSkill.id} className={styles.large}>
-                    <label>Skill</label>
-                    <input type="text" value={existingSkill.skill} readOnly />
-                    <label style={{ marginTop: '20px' }}>Certificate (PDF only)</label>
-                    {existingSkill.certificate ? (
-                        <p>{existingSkill.certificate.name}</p>
-                    ) : (
-                        <p>No certificate uploaded</p>
-                    )}
-                    {/* Include the "Remove" button for existing skills */}
-                    <button
-                        type="button"
-                        onClick={() => removeSkillField(existingSkill.id)}
-                        className={styles.removeButton}
-                    >
-                        Remove
-                    </button>
-                </div>
-            ))}
+    const handleSectorChange = (e) => {
+        setSelectedSector(e.target.value);
+    };
 
-            {/* Display new skills */}
-            {newSkills.map((field) => (
-                <div key={field.id} className={styles.large}>
-                    <label htmlFor={`skill-${field.id}`}>Skill</label>
-                    <input
-                        id={`skill-${field.id}`}
-                        type="text"
-                        placeholder="Writing"
-                        value={field.skill}
-                        onChange={(e) => handleSkillChange(field.id, e.target.value)}
-                    />
-                    <label style={{ marginTop: '20px' }} htmlFor={`certificate-${field.id}`}>
-                        Certificate (PDF only)
-                    </label>
-                    <input
-                        id={`certificate-${field.id}`}
-                        type="file"
-                        accept=".pdf"
-                        onChange={(e) => handleCertificateChange(field.id, e.target.files[0])}
-                    />
-                    {/* Include the "Remove" button for new skills */}
-                    <button
-                        type="button"
-                        onClick={() => removeSkillField(field.id)}
-                        className={styles.removeButton}
-                    >
-                        Remove
-                    </button>
-                </div>
-            ))}
-            <div className={styles.small}>
-                <button type="button" onClick={addSkillField} className={styles.addSkillBtn}>
-                    Add Skill
+    const handleSkillButtonClick = (skill) => {
+        // Check if the skill is already selected, if not, add it to the selectedSkills array
+        if (!selectedSkills.includes(skill)) {
+            setSelectedSkills([...selectedSkills, skill]);
+        } else {
+            // If the skill is already selected, remove it from the selectedSkills array
+            setSelectedSkills(selectedSkills.filter((selectedSkill) => selectedSkill !== skill));
+        }
+    };
+
+    const isSkillSelected = (skill) => {
+        // Check if a skill is selected based on whether it's in the selectedSkills array
+        return selectedSkills.includes(skill);
+    };
+
+    return (
+        <div className={styles.skillWrap}>
+            <select
+                id="sector"
+                name="sector"
+                className={styles.sector}
+                value={selectedSector}
+                onChange={handleSectorChange}
+            >
+                {skillData.map((data) => (
+                    <option key={data.sector} value={data.sector}>
+                        {data.sector}
+                    </option>
+                ))}
+            </select>
+            <div className={styles.skillSelection}>
+                {skillData
+                    .find((data) => data.sector === selectedSector)
+                    .skills.map((skill, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleSkillButtonClick(skill)}
+                            className={isSkillSelected(skill) ? styles.btnSelected : styles.skillBtn}
+                        >
+                            {skill} <RiAddFill className={styles.addIcon} />
+                        </button>
+                    ))}
+            </div>
+
+            {/* <div className={styles.selectedSkills}>
+                <p>Selected Skills:</p>
+                <ul>
+                    {selectedSkills.map((skill, index) => (
+                        <li key={index}>{skill}</li>
+                    ))}
+                </ul>
+            </div> */}
+
+            <div className={styles.btnWrap}>
+                <button onClick={handleSubmit} className={styles.btn}>
+                    Next
                 </button>
             </div>
-            <div className={styles.btnWrap}>
-                <input type="submit" value="Next" className={styles.btn} />
-            </div>
-        </form>
+        </div>
     );
 };
 

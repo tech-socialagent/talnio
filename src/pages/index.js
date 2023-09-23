@@ -34,7 +34,6 @@ export default function Home() {
           <div style={{ width: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', fontSize: '22px' }}>Our platform is designed to streamline and simplify your hiring journey, allowing you to recruit with ease.</div>
         </div>
         {/* END */}
-
         <ContactUs />
         <Footer />
       </main>

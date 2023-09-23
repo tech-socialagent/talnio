@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { PersonalDetailsContext, ResumeStageContext } from '@/Context';
+import { PersonalDetailsContext, ResumeStageContext, UserContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
+import { updateDoc, setDoc, doc } from "firebase/firestore";
+import db from '../../FirebaseConfig'
 
 const PersonalDetailsForm = () => {
     const { setResumeStage } = useContext(ResumeStageContext);
     const { personalDetails, setPersonalDetails } = useContext(PersonalDetailsContext)
+    const { user } = useContext(UserContext);
 
     // Handle input changes and update the state
     const handleInputChange = (e) => {
@@ -16,11 +19,33 @@ const PersonalDetailsForm = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        setResumeStage('Work  Experience')
+        const userDB = async () => {
+            try {
+                //Update Information
+                const usersRef = doc(db, "users", user.email);
+
+                await updateDoc(usersRef, {
+                    firstName: personalDetails.firstName || '',
+                    middleName: personalDetails.middleName || '',
+                    lastName: personalDetails.lastName || '',
+                    mobileNumber: personalDetails.mobileNumber || '',
+                    emailAddress: personalDetails.emailAddress || '',
+                    careerHeadline: personalDetails.careerHeadline || '',
+                    city: personalDetails.city || '',
+                    state: personalDetails.state || '',
+                    pincode: personalDetails.pincode || '',
+                    region: personalDetails.region || '',
+                    portfolioLink: personalDetails.portfolioLink || '',
+                })
+                setResumeStage('Work Experience')
+            } catch (e) {
+                console.error('Error adding document: ', e);
+            }
+        };
+        userDB();
         // Scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
 
     return (
         <form onSubmit={handleSubmit} className={styles.formWrap}>

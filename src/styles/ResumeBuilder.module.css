@@ -129,6 +129,7 @@
     border-radius: 340px;
     cursor: pointer;
 }
+
 .btn {
     background: var(--primary-color);
     border: none;
@@ -138,9 +139,10 @@
     color: #fff;
     border-radius: 340px;
     cursor: pointer;
+
 }
 
-.removeButton {
+/* .removeButton {
     width: max-content;
     background: var(--primary-color);
     border: none;
@@ -161,4 +163,69 @@
     color: #fff;
     border-radius: 340px;
     cursor: pointer;
+} */
+
+
+/* Skills */
+.skillWrap {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 6%;
+    row-gap: 40px;
+}
+
+.sector {
+    width: 200px;
+    padding: 0 6px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.skillSelection {
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.skillBtn {
+    border: 1px var(--primary-color) solid;
+    height: 50px;
+    width: max-content;
+    padding: 0 20px;
+    margin: 0 4px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 16px;
+    transition: .4s ease-in-out;
+    color: #000;
+    cursor: pointer;
+}
+
+
+.btnSelected {
+    border: 1px var(--primary-color) solid;
+    height: 50px;
+    width: max-content;
+    padding: 0 20px;
+    margin: 0 4px;
+    background: var(--primary-color);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 16px;
+    transition: .4s ease-in-out;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btnSelected .addIcon {
+    transform: rotate(45deg);
 }

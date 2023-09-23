@@ -6,8 +6,8 @@ import { MdEmail } from 'react-icons/md';
 import Link from 'next/link';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import db from '../FirebaseConfig'
-import img from '../../public/assets/signUp.jpg'
-import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import img from '../../public/assets/signUp.png'
+import { setDoc, doc } from "firebase/firestore";
 import Head from 'next/head';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useRouter } from 'next/router';
@@ -21,6 +21,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
+    const [errorMsg, seterrorMsg] = useState(false)
 
     const handleGoogleSignUp = () => {
         const auth = getAuth();
@@ -48,6 +49,7 @@ const SignUp = () => {
                             creationTime: user.metadata.creationTime,
                             profilePicture: profilePicture,
                             uid: user.uid,
+                            public: true,
                         });
                         router.push(`/profile/${user.email}`)
                     } catch (e) {
@@ -68,11 +70,30 @@ const SignUp = () => {
 
     const handleEmailSignUp = (e) => {
         e.preventDefault();
+        seterrorMsg(false)
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                const userDB = async () => {
+                    try {
+                        // Specify the Firestore collection name ('users') and use user's UID as the document ID
+                        const docRef = await setDoc(doc(db, 'users', user.email), {
+                            firstName: name,
+                            email: user.email,
+                            creationTime: user.metadata.creationTime,
+                            profilePicture: "",
+                            uid: user.uid,
+                            public: true,
+                        });
+                        router.push(`/profile/${user.email}`)
+                    } catch (e) {
+                        console.error('Error adding document: ', e);
+                        seterrorMsg(true)
+                    }
+                };
+                userDB();
                 // ...
             })
             .catch((error) => {
@@ -98,8 +119,6 @@ const SignUp = () => {
                 <div className={styles.right}>
                     {
                         signUpOpt != 'email' ?
-
-
                             <div className={styles.signUpOpt}>
                                 <h1>Sign up to Talnio.</h1>
                                 <div className={styles.googleSignUpWrap} onClick={handleGoogleSignUp} >
@@ -138,15 +157,17 @@ const SignUp = () => {
                                             onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
-                                    <div className={styles.inputWrap}>
+                                    <div className={errorMsg ? styles.inputError : styles.inputWrap}>
                                         <label htmlFor="email">Email</label>
-                                        <input
+                                        <input                                            
                                             type="email"
                                             id="email"
                                             value={email}
                                             required
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
+                                        <div className={styles.errorMsg} >{errorMsg ? 'this email is already in use' : ''}</div>
+
                                     </div>
                                     <div className={styles.inputWrap}>
                                         <label htmlFor="password">Password</label>

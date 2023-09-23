@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { ResumeStageContext, WorkExperienceContext } from '@/Context';
+import { ResumeStageContext, UserContext, WorkExperienceContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
+import { addDoc, collection } from "firebase/firestore"; 
+import db from '../../FirebaseConfig'
 
 const WorkExperience = () => {
     const { setResumeStage } = useContext(ResumeStageContext);
-
+    const { user } = useContext(UserContext);
     // Use the context for work experience data
     const { workExperienceData, setWorkExperienceData } = useContext(WorkExperienceContext);
 
@@ -19,7 +21,22 @@ const WorkExperience = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setResumeStage('Education'); // Transition to the next stage
+        const workExperienceDB = async () => {
+            try {
+                const docRef = await addDoc(collection(db, "workExperience"), {
+                    jobTitle: workExperienceData.jobTitle,
+                    companyName: workExperienceData.companyName,
+                    jobDescription: workExperienceData.jobDescription,
+                    startDate: workExperienceData.startDate,
+                    endDate: workExperienceData.endDate,
+                    userEmail: user.email,
+                });
+                setResumeStage('Education')
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        };
+        workExperienceDB();
         // Scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
