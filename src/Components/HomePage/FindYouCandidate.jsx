@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/styles/HomePage/FindYouCandidate.module.css'
+import styles from '@/styles/HomePage/FindYourCandidate.module.css'
 import Image from 'next/image'
 import findYouCandidate from '../../../public/assets/findYourCandidate.png'
 
