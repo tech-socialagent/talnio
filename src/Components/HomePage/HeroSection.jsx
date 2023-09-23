@@ -13,7 +13,7 @@ const HeroSection = () => {
                     Unleash Your Potential with Exciting Career Opportunities at <span style={{ background: 'var(--primary-color)', color: '#fff', padding: '0px 6px' }} >Talnio.</span>
                 </div>
                 <div className={styles.subHeading}>
-                    Lorem ipsum dolor sit amet consectetur. Mattis fringilla egestas elit sed nisi.
+                    Discover growth, purpose, and fulfillment in your career journey with Talnio's exciting prospects.
                 </div>
                 <button onClick={() => route.push('/sign-up')} className={styles.btn} >Get Started</button>
             </div>

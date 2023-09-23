@@ -13,12 +13,12 @@ const SecondSection = () => {
             desc: "Expand your network and engage with leading companies actively seeking fresh talent."
         },
         {
-            title: "Early access to opportunities",
-            desc: "Gain exclusive access to internships and early career opportunities, giving you a head start in your professional journey."
+            title: "Unlock Opportunities Abroad",
+            desc: "Explore global internship possibilities and broaden your horizons by connecting with international organizations for a diverse career experience."
         },
         {
-            title: "Early access to opportunities",
-            desc: "Gain exclusive access to internships and early career opportunities, giving you a head start in your professional journey."
+            title: "Personalized Career Guidance",
+            desc: "Receive tailored career advice and mentorship from industry experts to help you make informed choices and excel in your chosen field."
         },
     ]
 

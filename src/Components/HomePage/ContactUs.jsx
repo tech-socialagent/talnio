@@ -10,7 +10,7 @@ const ContactUs = () => {
         <div className={styles.sectionWrap}>
             <div className={styles.left}>
                 <h3>Contact us</h3>
-                <p>Lorem ipsum dolor sit amet consectetur. Integer leo lobortis tortor leo dignissim feugiat egestas. Congue massa arcu amet ante urna enim habitant facilisi. </p>
+                <p>We're here to ignite your potential and explore an exciting journey through the realm of professional growth.</p>
                 <div className={styles.iconText}>
                     <BsTelephoneFill className={styles.icon} />
                     <a href="">+911234567890</a>

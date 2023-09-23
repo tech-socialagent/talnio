@@ -25,20 +25,20 @@ export const Candidate = () => {
     ]
     const ContentData = [
         {
-            title: "Early access to opportunities",
-            desc: "Gain exclusive access to internships and early career opportunities, giving you a head start in your professional journey."
+            title: "Pre-screened Excellence",
+            desc: " Our candidates have already cleared rigorous interviews, ensuring top-notch skills."
         },
         {
-            title: "Connect with over 100 top companies",
-            desc: "Expand your network and engage with leading companies actively seeking fresh talent."
+            title: "Proven Professionals",
+            desc: "Meet individuals who have showcased their expertise and passion during our selection process."
         },
         {
-            title: "Early access to opportunities",
-            desc: "Gain exclusive access to internships and early career opportunities, giving you a head start in your professional journey."
+            title: "Ready to Contribute",
+            desc: "Our candidates are capable of making a meaningful impact in their respective roles."
         },
         {
-            title: "Early access to opportunities",
-            desc: "Gain exclusive access to internships and early career opportunities, giving you a head start in your professional journey."
+            title: "Diverse Skill Sets",
+            desc: "From creative minds to technical wizards, Our team boasts a wide range of talents."
         },
     ]
 
@@ -46,8 +46,8 @@ export const Candidate = () => {
     return (
         <div className={styles.sectionWrap}>
             <div className={styles.headerSection}>
-                <h2>Candidate</h2>
-                <p>Lorem ipsum</p>
+                <h2>Highly Skilled Candidates</h2>
+                <p>Exceptionally capable candidates with top-tier skills and qualifications.</p>
             </div>
             <div className={styles.body}>
                 <div className={styles.left}>

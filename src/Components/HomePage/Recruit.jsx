@@ -34,7 +34,7 @@ const Recruit = () => {
         <div className={styles.sectionWrap}>
             <div className={styles.headerSection}>
                 <h2>Recruit with Ease</h2>
-                <p>Lorem ipsum</p>
+                <p>Simplify hiring effortlessly with our streamlined recruitment solution.</p>
             </div>
             <div className={styles.body}>
                 <div className={styles.left}>
