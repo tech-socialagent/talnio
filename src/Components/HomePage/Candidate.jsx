@@ -11,15 +11,15 @@ export const Candidate = () => {
         },
         {
             img: require("../../../public/assets/candidate.png"),
-            designation: "UI/UX Designer",
+            designation: "Web Developer",
         },
         {
             img: require("../../../public/assets/candidate.png"),
-            designation: "UI/UX Designer",
+            designation: "Graphic Designer",
         },
         {
             img: require("../../../public/assets/candidate.png"),
-            designation: "UI/UX Designer",
+            designation: "Marketing Specialist",
         },
 
     ]

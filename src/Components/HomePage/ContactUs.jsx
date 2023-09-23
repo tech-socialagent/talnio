@@ -27,7 +27,7 @@ const ContactUs = () => {
                 </div>
             </div>
             <div className={styles.right}>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15555.695590769052!2d77.6534354!3d12.9126127!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae156ddcc9e49f%3A0x9dc40c60fec016a0!2sSocial%20Agent!5e0!3m2!1sen!2sin!4v1695021860743!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 'none', borderRadius: '10px' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6538688.918011022!2d-129.38946057083675!3d36.849200571761294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1695464189991!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 'none', borderRadius: '10px' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     )
