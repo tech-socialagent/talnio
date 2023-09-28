@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ResumeStageContext, UserContext, WorkExperienceContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
-import { addDoc, collection } from "firebase/firestore"; 
+import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import db from '../../FirebaseConfig'
 
 const WorkExperience = () => {
@@ -19,6 +19,37 @@ const WorkExperience = () => {
         });
     };
 
+    useEffect(() => {
+        const readData = async () => {
+            if (user && user.email) {
+                const q = query(collection(db, "workExperience"), where("userEmail", "==", user.email));
+
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    setWorkExperienceData(doc.data());
+                });
+            }
+
+
+            // 
+            // if (user && user.email) { // Check if 'user' and 'user.email' are defined
+            //     try {
+            //         const docRef = doc(db, 'users', user.email);
+            //         const docSnap = await getDoc(docRef);
+            //         if (docSnap.exists()) {
+            //             setWorkExperienceData(docSnap.data());
+            //         } else {
+            //         }
+            //     } catch (error) {
+            //         console.error('Error reading document: ', error);
+            //     }
+            // }
+        };
+        readData();
+    }, [user]);
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const workExperienceDB = async () => {
@@ -30,6 +61,7 @@ const WorkExperience = () => {
                     startDate: workExperienceData.startDate,
                     endDate: workExperienceData.endDate,
                     userEmail: user.email,
+
                 });
                 setResumeStage('Education')
             } catch (e) {

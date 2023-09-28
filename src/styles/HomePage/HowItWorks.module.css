@@ -1,0 +1,50 @@
+.sectionWrap {
+    padding: 2% 8%;
+}
+
+.headerSection h2 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0;
+}
+
+.headerSection p {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+}
+
+.cardsWrap {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+}
+
+.card {
+    width: 30%;
+    background: #E8FBFB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    border-radius: 40px;
+}
+
+.icon{
+    font-size: 40px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    transform: translateY(-25px);
+}
+
+.card p {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: center;
+    padding: 0 20%;
+    margin: 0;
+}

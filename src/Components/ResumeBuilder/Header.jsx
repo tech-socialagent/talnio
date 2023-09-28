@@ -5,7 +5,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 
 const Header = () => {
 
-    const data = ['Personal details', 'Work  Experience', 'Education', 'Skills', 'Preview'];
+    const data = ['Personal details', 'Work Experience', 'Education', 'Skills', 'Preview'];
     const { resumeStage, setResumeStage } = useContext(ResumeStageContext);
 
     const handleBackBtn = () => {

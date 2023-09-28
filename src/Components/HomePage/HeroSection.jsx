@@ -1,21 +1,21 @@
 import React from 'react'
 import styles from '@/styles/HomePage/HeroSection.module.css'
 import Image from 'next/image'
-import heroimage from '../../../public/assets/heroSection.png'
+
 import { useRouter } from 'next/router'
 
-const HeroSection = () => {
+const HeroSection = ({ heading, subHeading, btn, heroimage }) => {
     const route = useRouter();
     return (
         <div className={styles.HeroWrap}>
             <div className={styles.leftContent}>
                 <div className={styles.heading}>
-                    Unleash Your Potential with Exciting Career Opportunities at <span style={{ background: 'var(--primary-color)', color: '#fff', padding: '0px 6px' }} >Talnio.</span>
+                   {heading} <span style={{ background: 'var(--primary-color)', color: '#fff', padding: '0px 6px' }} >Talnio.</span>
                 </div>
                 <div className={styles.subHeading}>
-                    Discover growth, purpose, and fulfillment in your career journey with Talnio's exciting prospects.
+                    {subHeading}
                 </div>
-                <button onClick={() => route.push('/sign-up')} className={styles.btn} >Get Started</button>
+                <button onClick={() => route.push('/sign-up')} className={styles.btn} >{btn}</button>
             </div>
             <div className={styles.rightImage}>
                 <Image src={heroimage} alt='person' className={styles.heroImage} loading='eager' />

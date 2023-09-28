@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { PersonalDetailsContext, ResumeStageContext, UserContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
-import { updateDoc, setDoc, doc } from "firebase/firestore";
+import { updateDoc, getDoc, doc } from "firebase/firestore";
 import db from '../../FirebaseConfig'
 
 const PersonalDetailsForm = () => {
@@ -46,6 +46,25 @@ const PersonalDetailsForm = () => {
         // Scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    useEffect(() => {
+        const readData = async () => {
+            if (user && user.email) { // Check if 'user' and 'user.email' are defined
+                try {
+                    const docRef = doc(db, 'users', user.email);
+                    const docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        setPersonalDetails(docSnap.data());
+                    } else {
+                    }
+                } catch (error) {
+                    console.error('Error reading document: ', error);
+                }
+            }
+        };
+        readData();
+    }, [user]);
+
 
     return (
         <form onSubmit={handleSubmit} className={styles.formWrap}>

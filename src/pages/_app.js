@@ -1,11 +1,12 @@
-import { ResumeStageContext, UserContext } from '@/Context';
+import { RegisterStageContext, ResumeStageContext, UserContext } from '@/Context';
 import '@/styles/globals.css';
 import { useState } from 'react';
 import db from '../FirebaseConfig'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function App({ Component, pageProps }) {
-  const [resumeStage, setResumeStage] = useState('Skills');
+  const [resumeStage, setResumeStage] = useState('Work Experience');
+  const [registerStage, setRegisterStage] = useState('Personal Details');
   const [user, setUser] = useState([])
 
 
@@ -23,7 +24,9 @@ export default function App({ Component, pageProps }) {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <ResumeStageContext.Provider value={{ resumeStage, setResumeStage }}>
-        <Component {...pageProps} />
+        <RegisterStageContext.Provider value={{ registerStage, setRegisterStage }}>
+          <Component {...pageProps} />
+        </RegisterStageContext.Provider>
       </ResumeStageContext.Provider>
     </UserContext.Provider>
   );

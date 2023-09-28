@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@/styles/HomePage/Candidate.module.css'
 import Image from 'next/image'
 
-export const Candidate = () => {
+export const Candidate = ({btn}) => {
 
     const data = [
         {
@@ -73,6 +73,7 @@ export const Candidate = () => {
                             </div>
                         ))
                     }
+                    {btn ? <button onClick={() => route.push('/sign-up')} className={styles.btn} >{btn}</button> : ''}
                 </div>
             </div>
         </div>

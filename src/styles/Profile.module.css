@@ -1,0 +1,337 @@
+.profileWrap {
+    padding: 2% 4%;
+}
+
+
+/* header Component*/
+
+.headSectionWrap {
+    display: flex;
+}
+
+.leftProfile {
+    width: 60%;
+    display: flex;
+}
+
+.dp {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.basicInfoWrap {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+.designation {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.eduInfoWrap {
+    display: flex;
+    margin-top: 4px;
+    gap: 10px;
+}
+
+.eduInfo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.eduInfo p {
+    margin: 0;
+}
+
+.eduInfo .icon {
+    background: #D8D8D8;
+    padding: 8px;
+    border-radius: 50%;
+    color:
+        #8B8B8B;
+}
+
+.btnsWrap {
+    display: flex;
+    gap: 20px;
+}
+
+.btnWrap {
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    background: #F0F0F0;
+    border: none;
+    box-shadow: 2px 2px 4px #0000003b;
+    padding: 6px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+}
+
+.btnsWrap .icon {
+    background: var(--primary-color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 10px; */
+    border-radius: 50%;
+    color: #fff;
+}
+
+.rightVisibility {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+}
+
+.toggleWrap {
+    display: flex;
+    background: #E8FBFB;
+    padding: 15px 20px;
+    margin-left: 10px;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggleWrap button {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    margin-left: 6px;
+    background: transparent;
+    border: none;
+}
+
+.toggle {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    border-radius: 50%;
+    animation: toggleOFF .6s;
+}
+
+.toggleActive {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    border-radius: 50%;
+    transform: translateX(40px);
+    animation: toggleON .6s;
+}
+
+@keyframes toggleON {
+    from {
+        transform: translateX(0px);
+
+    }
+
+    to {
+        transform: translateX(40px);
+    }
+}
+
+@keyframes toggleOFF {
+    from {
+        transform: translateX(40px);
+
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+
+/* Body */
+.body {
+    display: flex;
+    column-gap: 2%;
+    margin-top: 4%;
+}
+
+.floatingSection {
+    width: 22%;
+}
+
+.mainContent {
+    width: 78%;
+}
+
+/* Common Styles */
+.sectionWrap {
+    padding: 2% 4%;
+    background: #e8fbfb80;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    box-shadow: 0px 4px 7px 0px #00000012;
+
+}
+
+.heading1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 42px;
+}
+
+.heading2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.subHeading {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    color: var(--primary-color);
+}
+
+.paragraph {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: -0.05em;
+    text-align: left;
+}
+
+.greyText {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    color: #8B8B8B;
+    line-height: 24px;
+}
+
+/* Personal Details */
+.location {
+    margin-top: 20px;
+}
+
+.emailPhoneNo {
+    margin-top: 40px;
+    display: flex;
+}
+
+.emailPhoneNo button {
+    background: #E8FBFB;
+    padding: 8px 25px;
+    border-radius: 20px;
+    margin-right: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+}
+
+.emailPhoneIcon {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+/* Work Experience */
+
+.experienceList {
+    margin-top: 40px;
+}
+
+.companyLogo {
+    border-radius: 50%;
+}
+
+.experienceList {
+    display: flex;
+}
+
+.experienceList .content {
+    margin-left: 30px;
+}
+
+
+/* Skills */
+
+.skillsList {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.certifications {
+    margin-top: 20px;
+}
+
+
+/* Body Nav */
+.bodyNavWrap {
+    background: #e8fbfb80;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    padding-top: 20%;
+    padding-bottom: 40%;
+    background: #E8FBFB;
+    border-radius: 10px;
+    box-shadow: 0px 4px 7px 0px #00000012;
+    position: sticky;
+    top: 4%;
+
+}
+
+.navitem {
+    border: 1px solid var(--primary-color);
+    height: 40px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.navitemActive {
+    border: 1px solid var(--primary-color);
+    height: 40px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+}

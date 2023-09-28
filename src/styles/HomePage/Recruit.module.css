@@ -115,25 +115,25 @@
     background: var(--primary-color);
     color: #fff;
     border: none;
-    padding: 2% 4%;
+    padding: 15px 20px;
     border-radius: 8px;
     width: max-content;
     cursor: pointer;
-    /* height: 70%; */
+    height: 70%;
 }
 
 .bookmark {
     font-size: 18px;
     background: #D8D8D8;
-    padding: 10% 5%;
+    padding: 15px 10px;
     border-radius: 8px;
     color: #8B8B8B;
     cursor: pointer;
     margin-left: 4%;
-    /* height: 70%; */
+    height: 70%;
 }
 
-.buttonWrap{
+.buttonWrap {
     width: 50%;
     display: flex;
     justify-content: flex-end;
