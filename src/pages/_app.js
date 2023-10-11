@@ -5,7 +5,7 @@ import db from '../FirebaseConfig'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function App({ Component, pageProps }) {
-  const [resumeStage, setResumeStage] = useState('Work Experience');
+  const [resumeStage, setResumeStage] = useState('Personal details');
   const [registerStage, setRegisterStage] = useState('Personal Details');
   const [user, setUser] = useState([])
 

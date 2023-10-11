@@ -25,7 +25,7 @@ export default function Home() {
                 <HeroSection
                     heading="Unleash Your Potential with Exciting Career Opportunities at"
                     subHeading="Discover growth, purpose, and fulfillment in your career journey with Talnio's exciting prospects."
-                    btn=""
+                    btn="Get Started"
                     heroimage={heroimage}
                 />
                 <SecondSection />
@@ -42,7 +42,7 @@ export default function Home() {
                 {/* END */}
 
                 <ContactUs />
-                <Footer />
+                {/* <Footer /> */}
             </main>
         </>
     )

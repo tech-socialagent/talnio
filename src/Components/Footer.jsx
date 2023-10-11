@@ -3,85 +3,37 @@ import styles from '@/styles/Footer.module.css'
 import Image from 'next/image'
 import logo from '../../public/assets/logo.png'
 import Link from 'next/link'
+import img from '../../public/assets/careerPath.png'
 
 const Footer = () => {
 
-    const data = [
-        {
-            title: 'Our Products',
-            links: [{
-                name: "For Employers",
-                url: '#'
-            },
-            {
-                name: "For Candidates",
-                url: '#'
-            }]
-        },
-        {
-            title: 'Our Company',
-            links: [
-                {
-                    name: "About Us",
-                    url: '#'
-                },
-                {
-                    name: "Careers",
-                    url: '#'
-                },
-                {
-                    name: "Terms & Conditions",
-                    url: '#'
-                },
-                {
-                    name: "Privacy policy",
-                    url: '#'
-                },
-            ]
-        },
-        {
-            title: 'Resources',
-            links: [{
-                name: "Blog",
-                url: '#'
-            }]
-        },
-        {
-            title: 'Support',
-            links: [{
-                name: "FAQs",
-                url: '#'
-            },
-            {
-                name: "Contact Us",
-                url: '#'
-            }]
-        },
-
-    ]
-
     return (
         <div className={styles.sectionWrap}>
-            <div className={styles.logoWrap}>
-                <Image src={logo} alt='logo' className={styles.logo} />
+            <div className={styles.imgContent}>
+                <Image src={img} alt='image' />
+                <h1>More Than a Job, It's a  Career Path.</h1>
             </div>
-            <div className={styles.contentWrap}>
-                {
-                    data.map((item, key) => (
-                        <div className={styles.content} key={key}>
-                            <div className={styles.title}>
-                                {item.title}
+            <div className={styles.mainFooter}>
+                <h5>Discovering the new narratives</h5>
+                <h1>Request More Information</h1>
+                <p>Lorem ipsum dolor sit amet consectetur. Egestas dictum vitae nisi praesent enim.</p>
+                <button>Contact Us</button>
+                <div className={styles.rights}>© 2023 Bricstal Group</div>
+                <div className={styles.linksWrap}>
+                    <Image src={logo} alt='logo' />
+                    <Image src={logo} alt='logo' />
+                    <div className={styles.pageLinks}>
+                        <Link href='/'>Home</Link>
+                        <Link href='/'>About us</Link>
+                        <Link href='/'>Terms and Conditions</Link>
+                        <Link href='/'>Privacy Policy</Link>
+                    </div>
+                    <div className={styles.socialMedia}>
+                            <div className={styles.iconWrap}>
+                                
                             </div>
-                            <div className={styles.linksWrap}>
-                                {
-                                    item.links.map((subItem, key) => (
-                                        <Link key={key} className={styles.link} href={subItem.url} >{subItem.name}</Link>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                    ))
-                }
+                    </div>
+                </div>
             </div>
         </div>
     )
