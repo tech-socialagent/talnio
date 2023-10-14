@@ -1,0 +1,139 @@
+.sectionWrap{
+    margin: 2% 0 0;
+}
+
+.imgContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentImage{
+    width: 17%;
+    height: auto;
+}
+
+.contentContainer{
+    position: relative;
+    background-color: var(--primary-color);
+    width: 85%;
+    border-radius: 30px;
+}
+
+.vectorImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    opacity: 0.3;
+
+    z-index: 1;
+}
+
+.contentContainer h1{
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    padding: 10px 0;
+    font-size: 36px;
+    color: #fff;
+}
+
+.mainFooter{
+    width: 100vw;
+    margin-top: 5%;
+    padding: 8% 0 5%;
+    background-color: var(--green);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+
+
+.mainFooter h5{
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #637080;
+    margin: 0;
+}
+
+.mainFooter h1{
+    margin: 0;
+    font-size: 54px;
+}
+
+.mainFooter p{
+    margin: 0;
+    font-size: 18px;
+    color: #0A142F;
+}
+
+.mainFooter button{
+    margin: 5% 0 3.5%;
+    border: none;
+    color: #fff;
+    background-color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px 50px;
+    border-radius: 30px;
+}
+
+.rights{
+    font-size: 14px;
+}
+
+.onlyBorder{
+    margin: 3% 0;
+
+    width: 70%;
+    height: 1px;
+    border-bottom: 2px solid #cedfe2;
+}
+
+.linksWrap{
+    padding: 0 3%;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    align-items: center;
+    gap: 5rem;
+}
+
+.logoContainer{
+    display: flex;
+    gap: inherit;
+}
+
+.talnioLogo, .bricstalLogo{
+    width: auto;
+    height: 30px;
+}
+
+.pageLinks{
+    display: flex;
+    gap: 2rem;
+    font-size: 16px;
+}
+
+.socialMedia{
+    display: flex;
+    gap: 2rem;
+}
+
+.socialMedia span{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+
+    padding: 10px;
+    border: 3px solid #cedfe2;
+    border-radius: 50%;
+}

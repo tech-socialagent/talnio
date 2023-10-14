@@ -54,15 +54,15 @@ const WorkExperience = () => {
         e.preventDefault();
         const workExperienceDB = async () => {
             try {
-                const docRef = await addDoc(collection(db, "workExperience"), {
-                    jobTitle: workExperienceData.jobTitle,
-                    companyName: workExperienceData.companyName,
-                    jobDescription: workExperienceData.jobDescription,
-                    startDate: workExperienceData.startDate,
-                    endDate: workExperienceData.endDate,
-                    userEmail: user.email,
+                // const docRef = await addDoc(collection(db, "workExperience"), {
+                //     jobTitle: workExperienceData.jobTitle,
+                //     companyName: workExperienceData.companyName,
+                //     jobDescription: workExperienceData.jobDescription,
+                //     startDate: workExperienceData.startDate,
+                //     endDate: workExperienceData.endDate,
+                //     userEmail: user.email,
 
-                });
+                // });
                 setResumeStage('Education')
             } catch (e) {
                 console.error("Error adding document: ", e);
@@ -84,7 +84,7 @@ const WorkExperience = () => {
                     placeholder="Enter job title"
                     value={workExperienceData.jobTitle}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.medium}>
@@ -96,7 +96,7 @@ const WorkExperience = () => {
                     placeholder="Enter company name"
                     value={workExperienceData.companyName}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.large}>
@@ -107,7 +107,7 @@ const WorkExperience = () => {
                     placeholder="Enter job description"
                     value={workExperienceData.jobDescription}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.medium}>
@@ -118,7 +118,7 @@ const WorkExperience = () => {
                     name="startDate"
                     value={workExperienceData.startDate}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.medium}>
@@ -129,7 +129,7 @@ const WorkExperience = () => {
                     name="endDate"
                     value={workExperienceData.endDate}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.btnWrap}>
