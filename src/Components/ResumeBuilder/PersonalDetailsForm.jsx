@@ -2,7 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { PersonalDetailsContext, ResumeStageContext, UserContext } from '@/Context';
 import styles from '@/styles/ResumeBuilder.module.css';
 import { updateDoc, getDoc, doc } from "firebase/firestore";
-import db from '../../FirebaseConfig'
+import db from '../../FirebaseConfig';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const PersonalDetailsForm = () => {
     const { setResumeStage } = useContext(ResumeStageContext);
@@ -17,27 +19,37 @@ const PersonalDetailsForm = () => {
             [name]: value,
         });
     };
+
+    //Phone number change
+    const handlePhoneChange = (value, country) => {
+        setPersonalDetails({
+            ...personalDetails,
+            mobileNumber: value
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const userDB = async () => {
             try {
                 //Update Information
-                const usersRef = doc(db, "users", user.email);
+                // const usersRef = doc(db, "users", user.email);
 
-                await updateDoc(usersRef, {
-                    firstName: personalDetails.firstName || '',
-                    middleName: personalDetails.middleName || '',
-                    lastName: personalDetails.lastName || '',
-                    mobileNumber: personalDetails.mobileNumber || '',
-                    emailAddress: personalDetails.emailAddress || '',
-                    careerHeadline: personalDetails.careerHeadline || '',
-                    city: personalDetails.city || '',
-                    state: personalDetails.state || '',
-                    pincode: personalDetails.pincode || '',
-                    region: personalDetails.region || '',
-                    portfolioLink: personalDetails.portfolioLink || '',
-                })
+                // await updateDoc(usersRef, {
+                //     firstName: personalDetails.firstName || '',
+                //     middleName: personalDetails.middleName || '',
+                //     lastName: personalDetails.lastName || '',
+                //     mobileNumber: personalDetails.mobileNumber || '',
+                //     emailAddress: personalDetails.emailAddress || '',
+                //     careerHeadline: personalDetails.careerHeadline || '',
+                //     city: personalDetails.city || '',
+                //     state: personalDetails.state || '',
+                //     pincode: personalDetails.pincode || '',
+                //     region: personalDetails.region || '',
+                //     portfolioLink: personalDetails.portfolioLink || '',
+                // })
                 setResumeStage('Work Experience')
+
             } catch (e) {
                 console.error('Error adding document: ', e);
             }
@@ -77,7 +89,7 @@ const PersonalDetailsForm = () => {
                     placeholder="Enter your first name"
                     value={personalDetails.firstName}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.small}>
@@ -100,19 +112,19 @@ const PersonalDetailsForm = () => {
                     placeholder="Enter your last name"
                     value={personalDetails.lastName}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.medium}>
                 <label htmlFor="mobileNumber">Mobile Number</label>
-                <input
-                    type="tel"
+                <PhoneInput
+                    country={'in'}
                     id="mobileNumber"
-                    name="mobileNumber"
-                    placeholder="Enter your mobile number"
                     value={personalDetails.mobileNumber}
-                    onChange={handleInputChange}
-                    required
+                    onChange={handlePhoneChange}
+                    className={styles.phoneInput}
+                    inputStyle={{ border: 'none', width: '100%', margin: '0', height: 'inherit' }}
+                    
                 />
             </div>
             <div className={styles.medium}>
@@ -124,7 +136,7 @@ const PersonalDetailsForm = () => {
                     placeholder="Enter your email address"
                     value={personalDetails.emailAddress}
                     onChange={handleInputChange}
-                    required
+                    
                 />
             </div>
             <div className={styles.large}>

@@ -1,0 +1,82 @@
+.pageWrap{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar{
+    width: 100%;
+    background-color: var(--green);
+}
+
+.navbarLogo{
+    margin: 25px 30px;
+
+    width: auto;
+    height: 45px;
+}
+
+.content{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.title{
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.content h1{
+    font-size: 42px;
+    color: var(--primary-color);
+    line-height: 28px;
+}
+
+.symbol{
+    width: 20px;
+    height: auto;
+}
+
+.content p{
+    font-size: 18px;
+    font-weight: 500;
+    color:#6A6969;
+}
+
+.btnContainer{
+    margin-top: 2%;
+    display: flex;
+    gap: 2rem;
+}
+
+.btnContainer button{
+    border: 2px solid #000;
+    border-radius: 30px;
+    font-weight: 500;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 8px 40px;
+    cursor: pointer;
+}
+
+.candidate{
+    color: #fff;
+    background-color: #000 !important;
+}
+
+.recruiter{
+    
+}
+
+.mainImage{
+    margin-top: 2%;
+
+    width: 65%;
+    height: auto;
+}
